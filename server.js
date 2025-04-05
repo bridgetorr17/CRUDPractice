@@ -18,6 +18,7 @@ MongoClient.connect(connectionString)
         // =================
         // Middlewares
         // =================
+        app.set('view engine', 'ejs');
         app.use(express.urlencoded({ extended: true }));
         
 
@@ -26,14 +27,13 @@ MongoClient.connect(connectionString)
         // =================
 
         app.get('/', (req, res) => {
-            res.sendFile(__dirName + '/index.html');
             db.collection('quotes')
                 .find()
                 .toArray()
                 .then(results => {
-                    console.log(results)
+                    res.render('index.ejs', { quotes: results});
                 })
-                .catch(error => console.log(error))
+                .catch(error => console.log(error));
         });
         
 
