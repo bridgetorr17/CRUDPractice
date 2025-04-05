@@ -20,7 +20,8 @@ MongoClient.connect(connectionString)
         // =================
         app.set('view engine', 'ejs');
         app.use(express.urlencoded({ extended: true }));
-        
+        app.use(express.static('public'));
+        app.use(express.json());
 
         // =================
         // Routes
@@ -47,6 +48,26 @@ MongoClient.connect(connectionString)
                 .catch(error => console.error(error))
         });
 
+        app.put('/quotes', (req, res) => {
+            quotesCollection
+                .findOneAndUpdate(
+                    {
+                        name: 'Neville Longbottom'
+                    }, 
+                    {
+                        $set: {
+                            name: req.body.name,
+                            quote: req.body.quote
+                        }
+                    },
+                    {
+                        upsert: true
+                    })
+                .then(result => {
+                    res.json('Success');
+                })
+                .catch(error => console.error(error));
+        });
 
         // =================
         // Listen
