@@ -1,0 +1,48 @@
+*{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+}
+
+body > *,
+#actions > *{
+    border-radius: 1rem;
+    margin: 2rem;
+    padding: 1rem;
+    border: 1px solid black;
+    background: white;
+}
+
+#actions{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: lightblue;
+    border: 0px;
+    margin: 0;
+    padding: 0;
+}
+
+#actions > * {
+    flex: 1 1 0px;
+}
+
+h1{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form > * {
+    margin: 0.5rem;
+}
+

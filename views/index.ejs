@@ -4,30 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD APP</title>
+
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>I'm going to bed before either of you come up with another clever idea to get us killed. Or worse, expelled</h1>
-    <form action="/quotes" method="POST">
-        <input type="text" placeholder="name" name="name">
-        <input type="text" placeholder="quote" name="quote">
-        <button type="submit">Submit</button>
-    </form>
-    <div>
-        <h2>Switch quotes!</h2>
-        <p>replace the current quotes with someone else</p>
-        <button id="updateButton">Replace</button>
-    </div>
-    <h2>Quotes</h2>
-    <ul class="quotes">
-        <!--Loop through quotes-->
-        <% for (var i=0; i < quotes.length; i++) {%>
-        <li class="quote">
-            <span><%= quotes[i].name %>: </span>
-
-            <span><%= quotes[i].quote %></span>
-        </li>
-        <% } %>
-    </ul>
+    <h1>Happiness can be found, even in the darkest of times, if one only remembers to used CRUD</h1>
+    <section id="actions">
+        <form action="/quotes" method="POST">
+            <input type="text" placeholder="Name..." name="name">
+            <input type="text" placeholder="Quote..." name="quote">
+            <button type="submit">Submit</button>
+        </form>
+        <div>
+            <h2>Switch quotes!</h2>
+            <p>replace the current quotes with someone else</p>
+            <button id="updateButton">Replace</button>
+        </div>
+        <div>
+            <h2>Remove quotes</h2>
+            <p>Delete one Harry Potter quote from the list below...</p>
+            <button id="deleteButton">Delete</button>
+            <div id="message"></div>
+        </div>
+    </section>
+    <section id="quotes">
+        <h2>Quotes</h2>
+        <ul class="quotes">
+            <!--Loop through quotes-->
+            <% for (var i=0; i < quotes.length; i++) {%>
+            <li class="quote">
+                <span><%= quotes[i].name %>: </span>
+    
+                <span><%= quotes[i].quote %></span>
+            </li>
+            <% } %>
+        </ul>
+    </section>
     <script src="/main.js"></script>
 </body>
 </html>
